@@ -82,6 +82,7 @@ a {
 
     &:last-child {
       color: $accent;
+
       &::after {
         display: none;
       }
@@ -97,11 +98,12 @@ a {
   display: flex;
   justify-content: center;
   padding: 30px 0;
-  
+
   .pagination__list {
     display: flex;
     padding: 0 35px;
   }
+
   &__item {
     padding: 0 15px;
   }
@@ -113,6 +115,7 @@ a {
   &__arrows {
     text-transform: uppercase;
     position: relative;
+
     &::before {
       content: '';
       position: absolute;
@@ -124,6 +127,7 @@ a {
 
   &__prev {
     padding-left: 15px;
+
     &::before {
       background-image: url('../images/icons/angle_left.svg');
       left: 0;
@@ -132,9 +136,24 @@ a {
 
   &__next {
     padding-right: 15px;
+
     &::before {
       background-image: url('../images/icons/angle_right.svg');
       right: 0;
     }
+  }
+}
+
+@media (max-width: 620px) {
+  .title {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
+
+@media (max-width: 375px) {
+  .title {
+    font-size: 32px;
+    line-height: 40px;
   }
 }
