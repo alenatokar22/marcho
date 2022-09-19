@@ -699,6 +699,30 @@
   }
 }
 
+@media (max-width: 768px) {
+  .comments-form {
+    &__box-input {
+      display: block;
+      margin-bottom: 0;
+    }
+
+    &__text-input {
+      margin-bottom: 30px;
+      width: 100%;
+    }
+
+    &__label {
+      margin-right: 0;
+      display: block;
+    }
+
+    &__rating-title {
+      margin-bottom: 20px;
+      margin-right: 0;
+    }
+  }
+}
+
 @media (max-width: 620px) {
   .blog-page {
     padding: 30px 0;
@@ -767,6 +791,9 @@
 
   .comments {
     &__img {
+      display: none;
+    }
+    &__content-date {
       display: none;
     }
   }
