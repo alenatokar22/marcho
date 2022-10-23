@@ -24,6 +24,12 @@ function nunjucks() {
     .pipe(dest('app'))
     .pipe(browserSync.stream())
 }
+// function njk() {
+//   return src('app/module/*.html')
+//     .pipe(nunjucksRender())
+//     .pipe(dest('app'))
+//     .pipe(browserSync.stream())
+// }
 
 function styles() {
   return src('app/scss/*.scss')
@@ -88,6 +94,7 @@ function cleanDist() {
 function watching() {
   watch(['app/**/*.scss'], styles);
   watch(['app/*.njk'], nunjucks);
+  // watch(['app/module/**/*.html'], njk);
   watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
   watch(['app/**/*.html']).on('change', browserSync.reload);
 }
@@ -101,4 +108,4 @@ exports.nunjucks = nunjucks;
 exports.cleanDist = cleanDist;
 exports.build = series(cleanDist, images, build);
 
-exports.default = parallel(styles, scripts, browsersync, watching)
+exports.default = parallel(nunjucks, styles, scripts, browsersync, watching)

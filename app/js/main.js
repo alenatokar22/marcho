@@ -143,3 +143,36 @@ $(function () {
   initializeClock('promo-clock', deadline);
 
 });
+
+function readyFn() {
+  moduleArr = window.location.pathname.split('/');
+  moduleName = (moduleArr[moduleArr.length - 1]).replace(".html", "").toUpperCase();
+  
+  console.log(moduleName);
+  // ulElement = document.getElementById('menu__list');
+  // console.log(ulElement);
+
+
+  $("#menu__list li").each(function () {
+    var self_li = $(this);
+    var el_a = self_li[0].firstElementChild;
+
+    el_a.classList.remove("menu__list-link--active");
+
+    console.log(self_li.text());
+    
+    if (moduleName === "INDEX" && self_li.text().indexOf("HOME") != -1){
+      el_a.classList.add("menu__list-link--active");
+    }
+    if (moduleName === "PRODUCT" && self_li.text().indexOf("PAGE") != -1) {
+      el_a.classList.add("menu__list-link--active");
+    }
+
+    else if(self_li.text().indexOf(moduleName) != -1){ 
+      el_a.classList.add("menu__list-link--active");  
+    }
+
+  });
+}
+
+document.addEventListener("DOMContentLoaded", readyFn);
